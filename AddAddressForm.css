@@ -1,65 +1,146 @@
-.add-address-container {
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #f9f9f9;
-}
+// import React, { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import "./ProductsPage.css";
+// import ProductFilter from "./filter";
 
-.add-address-container h2 {
-  text-align: center;
-}
+// const categoryId = {
+//   Clothing: 1,
+//   Electronics: 2,
+//   Groceries: 3,
+// };
 
-.address-block {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #ffffff;
-}
+// const ProductsPage = ({ category, products: propProducts = [] }) => {
+//   const [products, setProducts] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [sortOrder, setSortOrder] = useState(""); 
 
-.address-block h3 {
-  margin-bottom: 10px;
-}
+//   const fetchProducts = async (subCategory = []) => {
+//     let BASE_URL = "https://localhost:7152/api/Products";
 
-.address-block input,
-.address-block textarea {
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+//     try {
+//       if (subCategory.length > 0) {
+//         const subCategoryQuery = subCategory.join(",");
+//         BASE_URL = `${BASE_URL}/by-subCat/${subCategoryQuery}`;
+//       } else {
+//         if (category.toLowerCase() === "electronics") {
+//           BASE_URL = `${BASE_URL}/by-cat/electronics`;
+//         } else if (category.toLowerCase() === "clothing") {
+//           BASE_URL = `${BASE_URL}/by-cat/clothing`;
+//         } else if (category.toLowerCase() === "groceries") {
+//           BASE_URL = `${BASE_URL}/by-cat/groceries`;
+//         }
+//       }
 
-.add-btn,
-.remove-btn,
-.submit-btn {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-}
+//       const response = await fetch(BASE_URL);
+//       const data = await response.json();
+//       console.log("API response:", data);
 
-.remove-btn {
-  background-color: #dc3545;
-}
+//       const productArray = data.$values || [];
+//       setProducts(productArray);
+//       setLoading(false);
+//     } catch (e) {
+//       console.log(e);
+//       setLoading(false);
+//     }
+//   };
 
-.submit-btn {
-  background-color: #28a745;
-}
+//   useEffect(() => {
+//     setSortOrder(""); 
+//     fetchProducts([]);
+//   }, [category]);
 
-.add-btn:hover,
-.remove-btn:hover,
-.submit-btn:hover {
-  opacity: 0.9;
-}
+//   const navigate = useNavigate();
 
-.error {
-  color: red;
-  font-size: 12px;
-}
+//   const handleProductClick = (product) => {
+//     navigate(`/product/${product.id}`, { state: { product } });
+//   };
+
+//   const handleFilterChange = (selectedSubCategory) => {
+//     setSortOrder(""); 
+//     fetchProducts(selectedSubCategory);
+//   };
+
+//   const handleSortChange = (order) => {
+//     setSortOrder(order);
+//     const sortedProducts = [...products].sort((a, b) => {
+//       if (order === "lowToHigh") {
+//         return a.price - b.price;
+//       } else if (order === "highToLow") {
+//         return b.price - a.price;
+//       }
+//       return 0;
+//     });
+//     setProducts(sortedProducts);
+//   };
+
+//   return (
+//     <div className="container mt-4 products-page">
+//       <div className="d-flex justify-content-between align-items-center">
+//         <h1 className="mb-4">{category} Products</h1>
+        
+//         <div className="sort-section">
+//           <label htmlFor="sortOrder" className="me-2">
+//             Sort By:
+//           </label>
+//           <select
+//             id="sortOrder"
+//             className="form-select form-select-sm d-inline-block w-auto"
+//             value={sortOrder}
+//             onChange={(e) => handleSortChange(e.target.value)}
+//           >
+//             <option value="">Default</option>
+//             <option value="lowToHigh">Price: Low to High</option>
+//             <option value="highToLow">Price: High to Low</option>
+//           </select>
+//         </div>
+//       </div>
+//       <div className="products-layout">
+        
+//         <div className="filter-section">
+//           <ProductFilter
+//             onFilterChange={handleFilterChange}
+//             categoryId={categoryId[category]}
+//           />
+//         </div>
+
+//         <div className="products-section">
+//           {loading ? (
+//             <p>Loading products...</p>
+//           ) : (
+//             <div className="row">
+//               {products.map((product) => (
+//                 <div key={product.id} className="col-md-4 mb-4">
+//                   <div
+//                     className={`card ${
+//                       product.stock === 0 ? "out-of-stock" : ""
+//                     }`}
+//                   >
+//                     <img
+//                       src={`https://localhost:7152/${product.imageUrl}`}
+//                       className="card-img-top"
+//                       alt={product.name}
+//                     />
+//                     <div className="card-body">
+//                       <h5 className="card-title">{product.name}</h5>
+//                       {/* <p className="card-text">{product.description}</p> */}
+//                       <p className="card-price">Price: ₹{product.price}</p>
+//                       <button
+//                         className="btn btn-dark"
+//                         onClick={() => handleProductClick(product)}
+//                         disabled={product.stock === 0}
+//                       >
+//                         {product.stock === 0 ? "No Stock" : "View Details"}
+//                       </button>
+//                     </div>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProductsPage;
