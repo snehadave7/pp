@@ -1,3 +1,118 @@
-npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
-Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):      
-Failed to parse source map from 'C:\Users\2000141601\Desktop\my-app\node_modules\bootstrap\dist\css\bootstrap.min.css.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\2000141601\Desktop\my-app\node_modules\bootstrap\dist\css\bootstrap.min.css.map'
+import React from "react";
+import { ToastContainer } from "react-bootstrap";
+import { BrowserRouter as Router,Routes, Route, } from "react-router-dom";
+import Navbar from "./pages/home/Navbar";
+import Home from "./pages/home/Home";
+function App() {
+  return (
+    <>
+    <ToastContainer/>
+   
+    <Router>
+      <Routes>
+        <Route element={ <Navbar/>}>
+        <Route path="/" element={<Home/>}/>
+        </Route>
+        {/* <Route path="/login" element={<Login/>}/> */}
+        
+      </Routes>
+    </Router>
+    </>
+  );
+}
+
+export default App;
+
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import "./Navbar.css";
+import Collapse from "react-bootstrap/Collapse";
+
+const Navbar = () => {
+ 
+  const [open, setOpen] = useState(false);
+
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark py-2">
+      <div className="container-fluid">
+        {/* Logo */}
+        <Link className="navbar-brand ms-0" to="/">
+          <img
+            // src={logo}
+            alt="Site Logo"
+            className="d-inline-block align-text-top"
+          />
+        </Link>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={() => setOpen(!open)}
+          aria-controls="navbarNav"
+          aria-expanded={open}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <Collapse in={open}>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            
+            <ul className="navbar-nav me-auto">
+              
+               (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/clothing">
+                      Fashion
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/electronics">
+                      Electronics
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/groceries">
+                      Grocery
+                    </Link>
+                  </li>
+                </>
+              )
+            </ul>
+
+            <ul className="navbar-nav ms-auto align-items-center">
+                <>
+                  <li className="nav-item me-3">
+                    <Link className="nav-link" to="/account">
+                      Account
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/cart">
+                      <button className="btn btn-primary">
+                        <FontAwesomeIcon
+                          icon={faShoppingCart}
+                          style={{ fontSize: "20px" }}
+                          className="me-1"
+                        />
+                        
+                      </button>
+                    </Link>
+                  </li>
+                </>
+            </ul>
+          </div>
+        </Collapse>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+                                 
