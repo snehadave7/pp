@@ -1,9 +1,7 @@
-C:\Users\2000141601\Desktop\frontend>npx create-react-app my-app
-npm error code ENOENT
-npm error syscall lstat
-npm error path C:\Users\2000141601\AppData\Roaming\npm
-npm error errno -4058
-npm error enoent ENOENT: no such file or directory, lstat 'C:\Users\2000141601\AppData\Roaming\npm'
-npm error enoent This is related to npm not being able to find a file.
-npm error enoent
-npm error A complete log of this run can be found in: C:\Users\2000141601\AppData\Local\npm-cache\_logs\2024-12-31T05_37_29_629Z-debug-0.log
+ERROR in ./src/index.js 10:0-48
+Module not found: Error: Can't resolve 'bootstrap/dist/js/bootstrap.bundle.min' in 'C:\Users\2000141601\Desktop\my-app\src'
+
+ERROR in ./src/index.js 11:0-46
+Module not found: Error: Can't resolve 'bootstrap/dist/css/bootstrap.min.css' in 'C:\Users\2000141601\Desktop\my-app\src'
+
+webpack compiled with 2 errors
