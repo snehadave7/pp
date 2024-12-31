@@ -1,1 +1,3 @@
 npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
+Module Warning (from ./node_modules/source-map-loader/dist/cjs.js):      
+Failed to parse source map from 'C:\Users\2000141601\Desktop\my-app\node_modules\bootstrap\dist\css\bootstrap.min.css.map' file: Error: ENOENT: no such file or directory, open 'C:\Users\2000141601\Desktop\my-app\node_modules\bootstrap\dist\css\bootstrap.min.css.map'
