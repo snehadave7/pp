@@ -1,7 +1,1 @@
-ERROR in ./src/index.js 10:0-48
-Module not found: Error: Can't resolve 'bootstrap/dist/js/bootstrap.bundle.min' in 'C:\Users\2000141601\Desktop\my-app\src'
-
-ERROR in ./src/index.js 11:0-46
-Module not found: Error: Can't resolve 'bootstrap/dist/css/bootstrap.min.css' in 'C:\Users\2000141601\Desktop\my-app\src'
-
-webpack compiled with 2 errors
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
