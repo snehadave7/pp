@@ -1,21 +1,5 @@
-1. Define `Patient` class with the following confidential attributes: 
-a. patientId
-b. firstName
-c. lastName; 
-d. dateOfBirth
-e. gender
-f. contactNumber
-© Hexaware Technologies Limited. All rights www.hexaware.com
-g. address;
-2. Define ‘Doctor` class with the following confidential attributes:
-a. doctorId
-b. firstName
-c. lastName
-d. specialization
-e. contactNumber; 
-3. Appointment Class:
-a. appointmentId
-b. patientId 
-c. doctorId
-d. appointmentDate
-e. description
+System.InvalidOperationException: Unable to resolve service for type 'CodingTest.Repository.IHospitalService' while attempting to activate 'CodingTest.Controllers.HospitalController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method3(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
