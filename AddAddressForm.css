@@ -1,30 +1,31 @@
-public class SquareRoot {
+public class SquareRootInteger {
     public static void main(String[] args) {
-        double number = 25; // Replace with your desired number
-        double precision = 0.00001; // Desired precision level
-        double sqrt = squareRoot(number, precision);
-
-        System.out.println("Square root of " + number + " is approximately: " + sqrt);
+        int x1 = 4;
+        int x2 = 8;
+        System.out.println("Square root of " + x1 + " is: " + mySqrt(x1)); // Output: 2
+        System.out.println("Square root of " + x2 + " is: " + mySqrt(x2)); // Output: 2
     }
 
-    public static double squareRoot(double number, double precision) {
-        if (number < 0) {
-            throw new IllegalArgumentException("Square root of negative numbers is not defined.");
+    public static int mySqrt(int x) {
+        if (x < 2) {
+            return x; // The square root of 0 or 1 is the number itself.
         }
 
-        double low = 0;
-        double high = number;
-        double mid = 0;
+        int left = 1, right = x / 2; // Start binary search within 1 to x/2
+        int result = 0;
 
-        while ((high - low) > precision) {
-            mid = (low + high) / 2;
-            if (mid * mid > number) {
-                high = mid;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            // To avoid overflow, compare using division:
+            if (mid <= x / mid) {
+                result = mid; // mid is a valid square root candidate
+                left = mid + 1; // Narrow down to larger values
             } else {
-                low = mid;
+                right = mid - 1; // Narrow down to smaller values
             }
         }
 
-        return (low + high) / 2; // Return the midpoint as the square root
+        return result; // Return the largest valid square root
     }
-}
+        }
