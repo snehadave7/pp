@@ -1,8 +1,30 @@
-System.InvalidOperationException: Unable to resolve service for type 'CodingTest.Repository.IHospitalService' while attempting to activate 'CodingTest.Controllers.HospitalController'.
-   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
-   at lambda_method3(Closure , IServiceProvider , Object[] )
-   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
-   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
-builder.Services.AddLogging();
-builder.Logging.AddConsole();
-builder.Logging.ClearProviders()
+public class SquareRoot {
+    public static void main(String[] args) {
+        double number = 25; // Replace with your desired number
+        double precision = 0.00001; // Desired precision level
+        double sqrt = squareRoot(number, precision);
+
+        System.out.println("Square root of " + number + " is approximately: " + sqrt);
+    }
+
+    public static double squareRoot(double number, double precision) {
+        if (number < 0) {
+            throw new IllegalArgumentException("Square root of negative numbers is not defined.");
+        }
+
+        double low = 0;
+        double high = number;
+        double mid = 0;
+
+        while ((high - low) > precision) {
+            mid = (low + high) / 2;
+            if (mid * mid > number) {
+                high = mid;
+            } else {
+                low = mid;
+            }
+        }
+
+        return (low + high) / 2; // Return the midpoint as the square root
+    }
+}
