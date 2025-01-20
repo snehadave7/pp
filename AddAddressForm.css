@@ -1,31 +1,78 @@
-public class SquareRootInteger {
-    public static void main(String[] args) {
-        int x1 = 4;
-        int x2 = 8;
-        System.out.println("Square root of " + x1 + " is: " + mySqrt(x1)); // Output: 2
-        System.out.println("Square root of " + x2 + " is: " + mySqrt(x2)); // Output: 2
-    }
+Advanced	
+Advanced SQL Techniques
+Window functions (ROW_NUMBER, RANK), CTEs, recursive queries
+Analyzing and optimizing query performance
+Stored Procedures and Triggers
+Database Design and Normalization
 
-    public static int mySqrt(int x) {
-        if (x < 2) {
-            return x; // The square root of 0 or 1 is the number itself.
-        }
+Data Warehousing Learning 
+Level
+Topic
+Description
+Beginner
+Introduction to Data Warehousing
+Overview of data warehousing concepts and architecture
+ 
+Data Modeling
+Understanding star schema, snowflake schema, and fact tables:
+The star schema has dimensional tables directly connected to the fact table while in the snowflake schema, the dimensional tables have further extensions, and not all the tables are directly connected to the fact table. In data modeling, a "star schema" is a simple database design where a central "fact table" connects to multiple "dimension tables" around it, resembling a star, while a "snowflake schema" is a more complex variation where dimension tables can have further hierarchical levels, creating a snowflake-like structure; both use "fact tables" to store the core measured data, with dimension tables providing context through attributes like time, location, and product details. 
+ 
+Data Warehousing Tools
+Introduction to tools like Amazon Redshift, Google BigQuery, and Snowflake
+Intermediate
+Dimensional Modeling
+Designing and implementing dimensional models
+ 
+Data Integration
+ 
+Data Quality and Governance
 
-        int left = 1, right = x / 2; // Start binary search within 1 to x/2
-        int result = 0;
+Advanced
+Data Warehouse Optimization
+Techniques for optimizing performance and storage:
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+Advanced ETL Techniques
+Implementing complex ETL workflows and data transformations
+Advanced ETL techniques include using ETL tools to extract, transform, and load data from multiple sources into a target destination. The goal is to aggregate data for reporting and analysis.
+ 
+Real-Time Data Warehousing
+Real-time data warehousing refers to a system that captures and processes business data as it occurs, allowing for immediate analysis and insights, unlike traditional data warehouses which typically analyze historical data with a delay; this is achieved through specialized technologies that enable near-instantaneous data ingestion, transformation, and querying, providing real-time visibility into ongoing operations and enabling faster decision-making
 
-            // To avoid overflow, compare using division:
-            if (mid <= x / mid) {
-                result = mid; // mid is a valid square root candidate
-                left = mid + 1; // Narrow down to larger values
-            } else {
-                right = mid - 1; // Narrow down to smaller values
-            }
-        }
+Cloud Learning 
+Intermediate
 
-        return result; // Return the largest valid square root
-    }
-        }
+Cloud Storage Solutions: 
+Exploring cloud storage options and services:
+
+Cloud storage solutions are services that allow users to store data on remote servers, which are maintained by a third-party provider. This service is accessible from anywhere with an internet connection. 
+How does cloud storage work?
+A user transfers data to a third-party provider over the internet or a network 
+The provider stores the data on servers in an off-site location 
+The provider manages, secures, and hosts the data 
+The user can access the data through a public or private internet connection 
+
+Benefits of cloud storage
+Scalability: Users can expand or reduce their data storage as needed 
+Accessibility: Users can access their data from any device connected to the internet 
+Security: Cloud storage solutions often include encryption, automatic backups, and multi-factor authentication 
+Flexibility: Users can store and retrieve data remotely 
+
+Types of cloud storage 
+Public cloud storage: Suitable for unstructured data
+Private cloud storage: Can be protected behind a company firewall
+Hybrid cloud storage: A combination of public and private cloud services
+
+ 
+Networking in the Cloud
+Basics of cloud networking and security
+
+Advanced
+
+Cloud Architecture and Design
+Designing scalable and resilient cloud architectures
+ 
+Cloud Security Best Practices
+Implementing security measures and compliance in the cloud
+ 
+Advanced Cloud Services
+Exploring advanced services like AI, ML, and data analytics in the cloud
